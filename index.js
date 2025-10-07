@@ -17,7 +17,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 // --- Middleware ---
 // Enable CORS to allow requests from your frontend
 // In production, you should restrict this to your actual frontend domain
-app.use(cors({ origin: '*' })); // For development, '*' is fine.
+const frontendURL = process.env.FRONTEND_URL;
+app.use(cors({ origin: frontendURL })); // For development, '*' is fine.
 
 // Enable Express to parse JSON request bodies
 app.use(express.json());
